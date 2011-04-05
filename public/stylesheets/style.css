@@ -264,3 +264,11 @@ blockquote{
     margin: 0px;
     padding: 0;
 }
+
+.notice {
+    background: #00FF00;
+}
+
+.alert {
+    background: #FF0000;
+}

@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+  [
+  {:name => "Perl" },
+  {:name => "PHP" },
+  {:name => "Rails" },
+  {:name => "Java" },
+  {:name => "Python" },
+  {:name => "Ruby" }
+  ].each do |attrb|
+    Category.find_or_create_by_name(attrb)
+  end

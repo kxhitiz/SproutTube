@@ -3,8 +3,11 @@ STube::Application.routes.draw do
 
   devise_for :people
 
-  resources :home
-  resources :person
+  get "/home/index"
+
+  resources :people
+  resources :videos
+  resources :categories
 
   root :to => "home#index"
 

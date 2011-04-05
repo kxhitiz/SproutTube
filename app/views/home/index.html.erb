@@ -1,2 +1,8 @@
-<h1>Home</h1>
+<h1>Categories Cloud</h1>
 
+<br /> <br />
+<h2>
+<% @categories.each do |cat| %>
+    <%= link_to "#{cat.name}", category_path(cat) %> |
+<% end %>
+</h2>

@@ -8,16 +8,14 @@
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div id="wrap">
         <div id="top">
             <h2><%= link_to "SproutTube.com", home_index_path %></h2>
             <div id="menu">
                 <ul>
-                    <li><a href="#" class="current">Home</a></li>
+                    <li><%= link_to "Home", home_index_path %></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">LogIn</a></li>
+                    <li> <%= link_to "LogIn", new_person_session_path %> </li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -26,6 +24,8 @@
             <div style="float: right;"><a href="javascript:ts('body',1)">[+]</a> | <a
                 href="javascript:ts('body',-1)">[-]</a></div>
                 <div id="left">
+                    <p class="notice"><%= notice %></p>
+                    <p class="alert"><%= alert %></p>
                     <h2>Welcome to SproutTube.com</h2>
                     <%= yield %>
                 </div>

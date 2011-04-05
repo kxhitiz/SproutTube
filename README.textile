@@ -1,0 +1,9 @@
+h1=. Sprout Tube
+
+h2. An attempt to make a simple Video Streaming WebApp
+
+h3. Features of the app are
+
+* User authentication using devise gem
+
+Suggestions are warmly welcomed :)
