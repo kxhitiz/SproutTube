@@ -1,5 +1,11 @@
 STube::Application.routes.draw do
+
+  #devise_for :people
+
   resources :home
+  resources :person
+
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
