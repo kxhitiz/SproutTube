@@ -1,6 +1,7 @@
 STube::Application.routes.draw do
 
-  #devise_for :people
+
+  devise_for :people
 
   resources :home
   resources :person
