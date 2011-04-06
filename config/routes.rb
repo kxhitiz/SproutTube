@@ -6,7 +6,11 @@ STube::Application.routes.draw do
   get "/home/index"
 
   resources :people
-  resources :videos
+
+  resources :videos do
+    resources :reviews
+  end
+
   resources :categories
 
   root :to => "home#index"
@@ -68,3 +72,4 @@ STube::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
