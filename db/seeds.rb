@@ -16,3 +16,10 @@
   ].each do |attrb|
     Category.find_or_create_by_name(attrb)
   end
+
+  [
+  {:name => "admin", :email => "admin@sprout-tube.com", :password => "admingod" }
+  ].each do |attrb|
+    Person.find_or_create_by_name(attrb)
+  end
+

@@ -1,6 +1,11 @@
 class VideosController < ApplicationController
+  before_filter :authorize, :except => :index
   def index
-    @videos = Video.all
+    if params[:search]
+      @videos = Video.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
+    else
+      @videos = Video.find(:all)
+    end
   end
 
   def show
@@ -38,3 +43,4 @@ class VideosController < ApplicationController
   end
 
 end
+

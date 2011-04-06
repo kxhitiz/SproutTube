@@ -15,9 +15,17 @@
                 <ul>
                     <li><%= link_to "Home", home_index_path %></li>
                     <li><a href="#">About</a></li>
-                    <li> <%= link_to "LogIn", new_person_session_path %> </li>
+                    <li>
+                      <% if person_signed_in? %>
+                        <%= link_to "LogOut", destroy_person_session_path %>
+                      <% else %>
+                        <%= link_to "LogIn", new_person_session_path %>
+                      <% end %>
+                    </li>
                     <li><a href="#">Contact</a></li>
+                    <li> <%= render "shared/link" %> </li>
                 </ul>
+
             </div>
         </div>
         <div id="content">
@@ -56,5 +64,4 @@
             </div>
         </body>
 </html>
-
 

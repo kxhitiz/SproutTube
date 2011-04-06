@@ -5,5 +5,8 @@ h2. An attempt to make a simple Video Streaming WebApp
 h3. Features of the app are
 
 * User authentication using devise gem
+* Only admin can have full access for creating & modifying video
+* User can make a review on each video
 
 Suggestions are warmly welcomed :)
+

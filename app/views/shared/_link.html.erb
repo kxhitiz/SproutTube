@@ -1,0 +1,9 @@
+<% if person_signed_in? %>
+  <%= "Welcome #{current_person.name}!" %> |
+<% end %>
+
+<% form_tag videos_path, :method => "get" do %>
+  <%= text_field_tag :search, params[:search], :size => 10 %>
+  <%= submit_tag "GO!", :name => nil %>
+<% end %>
+
