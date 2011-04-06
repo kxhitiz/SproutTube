@@ -3,9 +3,15 @@
 <head>
     <title>SproutTube</title>
     <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag 'rails', 'jquery', 'jquery-ui', 'application', 'textsizer' %>
+    <%= javascript_include_tag 'rails', 'jquery', 'jquery-ui', 'application', 'textsizer', 'video' %>
     <%= csrf_meta_tag %>
     <link rel="shortcut icon" href="favicon.ico" />
+    <script type="text/javascript">
+        // Must come after the video.js library
+
+        // Add VideoJS to all video tags on the page when the DOM is ready
+        VideoJS.setupAllWhenReady();
+    </script>
 </head>
 <body>
     <div id="wrap">

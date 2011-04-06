@@ -1,13 +1,17 @@
 <h1>Videos <%= @video.title %></h1>
 <h2> Video Path: <%= @video.path %> </h2>
 
+<!-- Begin VideoJS -->
+ <div class="video-js-box">
+   <video id="show_video" class="video-js" width="500" controls="controls" preload="auto" >
+     <source src="<%= '#{@video.path}' %>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+   </video>
+ </div>
+ <!-- End VideoJS -->
 
-<video id= "show_video" src = "/<%= @video.path %>" controls="controls" width = "500" poster = "images/video_icon.png">
-    your browser does not support the video tag
-</video>
 
 <br />
-<h2><hr />Your Review Here</h2>
+<h2><hr />Video Reviews</h2>
 <% @reviews.each do |review| %>
     <div class="video_review">
     <%= review.content %> <br />
