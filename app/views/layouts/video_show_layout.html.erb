@@ -20,7 +20,7 @@
             <div id="menu">
                 <ul>
                     <li><%= link_to "Home", home_index_path %></li>
-                    <li><a href="#">About</a></li>
+                    <li><%= link_to "Browse All", videos_path %></li>
                     <li>
                       <% if person_signed_in? %>
                         <%= link_to "LogOut", destroy_person_session_path %>
@@ -28,7 +28,11 @@
                         <%= link_to "LogIn", new_person_session_path %>
                       <% end %>
                     </li>
-                    <li><a href="#">Contact</a></li>
+                    <li>
+                    <% if admin? %>
+                      <%= link_to "Add Video", new_video_path %>
+                    <% end %>
+                    </li>
                     <li> <%= render "shared/link" %> </li>
                 </ul>
 
@@ -47,11 +51,14 @@
                     <div class="box">
                         <h2 style="margin-top:17px">You May Also Like</h2>
                         <ul>
-                            <li><a href="#">Recent Entries1</a> <i>01 Des 06</i></li>
-                            <li><a href="#">Recent Entries2</a> <i>01 Des 06</i></li>
-                            <li><a href="#">Recent Entries3</a> <i>01 Des 06</i></li>
-                            <li><a href="#">Recent Entries4</a> <i>01 Des 06</i></li>
-                            <li><a href="#">Recent Entries5</a> <i>01 Des 06</i></li>
+                            <% @rec_videos= recommended_video(@video) %>
+                            <% @rec_videos.each do |vid| %>
+                                <li>
+                                    <%= link_to "#{vid.title}", video_path(vid) %>
+                                    <%= "Hits: #{vid.hits}" %>
+                                    <%= "Reviews Count: #{review_count(vid)}" %> <br />
+                                </li>
+                            <% end %>
                         </ul>
                     </div>
                 </div>

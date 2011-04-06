@@ -12,7 +12,13 @@
   {:name => "Rails" },
   {:name => "Java" },
   {:name => "Python" },
-  {:name => "Ruby" }
+  {:name => "Ruby" },
+  {:name => "ASP" },
+  {:name => "JSP" },
+  {:name => "Wordpress" },
+  {:name => "Drupal" },
+  {:name => "Joomla" },
+  {:name => "Magento" }
   ].each do |attrb|
     Category.find_or_create_by_name(attrb)
   end

@@ -1,14 +1,17 @@
-<h1>Videos <%= @video.title %></h1>
+<h1><%= @video.title %></h1>
 <h2> Video Path: <%= @video.path %> </h2>
 
 <!-- Begin VideoJS -->
  <div class="video-js-box">
-   <video id="show_video" class="video-js" width="500" controls="controls" preload="auto" >
-     <source src="<%= '#{@video.path}' %>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+   <video id="show_video" class="video-js" width="750" controls="controls" preload="auto"  >
+     <source src='<%= "../#{@video.path}" %>' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
    </video>
  </div>
  <!-- End VideoJS -->
-
+<h3>
+<%= link_to  image_tag("thumbs_up.png", :alt => "Like This Video"), video_likes_path(@video) %>
+<%= link_to image_tag("thumbs_down.png", :alt => "Dislike This Video"), video_dislikes_path(@video) %>
+</h3>
 
 <br />
 <h2><hr />Video Reviews</h2>
@@ -22,4 +25,7 @@
 
 <% if auth_review? %>
     <%= render 'reviews/form' %>
+<% elsif %>
+    <i><%= "You Got To Login if You Want to Make a Review & Get Points... " %></i>
+    <%= link_to "Yes, I Want", person_session_path %>
 <% end %>

@@ -8,6 +8,8 @@ STube::Application.routes.draw do
   resources :people
 
   resources :videos do
+    get 'likes'
+    get 'dislikes'
     resources :reviews
   end
 

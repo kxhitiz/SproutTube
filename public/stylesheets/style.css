@@ -54,7 +54,7 @@ blockquote{
 #wrap {
        margin-left: auto;
        margin-right: auto;
-       width: 730px;
+       width: 1024px;
 }
 
 
@@ -164,7 +164,7 @@ blockquote{
 }
 
 #left {
-    width: 390px;
+    width: 685px;
     float:left;
     display: block;
        margin-left: 20px;
@@ -323,5 +323,20 @@ blockquote{
 }
 
 .video-js-box {
+    box-shadow: 5px 10px 5px rgba(0,0,0,.2);
+}
+
+#most_watched_videos {
+    border: 1px dotted #DDDDDD;
+    display: block;
+    padding: 5px;
+    box-shadow: 5px 10px 5px rgba(0,0,0,.2);
+}
+
+#most_active_users {
+    border: 1px dotted #DDDDDD;
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
     box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }

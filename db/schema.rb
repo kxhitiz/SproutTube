@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406061515) do
+ActiveRecord::Schema.define(:version => 20110406063657) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20110406061515) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "points",                              :default => 0
-    t.integer  "review_id"
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
@@ -51,11 +50,10 @@ ActiveRecord::Schema.define(:version => 20110406061515) do
     t.string   "category"
     t.text     "description"
     t.string   "path"
-    t.integer  "hits"
-    t.integer  "likes"
+    t.integer  "hits",        :default => 0
+    t.integer  "likes",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "review_id"
     t.string   "tags"
   end
 

@@ -6,3 +6,24 @@
     <%= link_to "#{cat.name}", category_path(cat) %> |
 <% end %>
 </h2>
+
+<div id="most_watched_videos">
+    <h2>Most Watched Videos</h2> <hr />
+    <h3>
+        <% @most_watched_videos.each do |video| %>
+            <%= link_to "#{video.title}", video_path(video) %> |
+            <%= "Hits: #{video.hits}" %> |
+            <%= "#{review_count(video)} Reviews Made" %> <br />
+        <% end %>
+    </h3>
+
+</div>
+<div id="most_active_users">
+    <h2>Most Active Users</h2> <hr />
+    <h3>
+        <% @most_active_users.each do |usr| %>
+            <%= "Name: #{usr.name}" %> |
+            <%= "Points: #{usr.points}" %><br />
+        <% end %>
+    </h3>
+</div>

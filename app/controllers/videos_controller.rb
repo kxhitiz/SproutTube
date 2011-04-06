@@ -10,6 +10,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    increase_video_hits(@video)
     @review = @video.reviews.new
     @reviews = @video.reviews
     respond_to do |format|
@@ -47,5 +48,33 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
+  def likes
+    @video = Video.find(params[:video_id])
+    @video.likes += 1
+    if @video.save
+      redirect_to video_path(@video), :notice => "You Just Gave Thumbs Up To this Video"
+    else
+      redirect_to video_path(@video), :alert => "Whoaa... Something Went Wrong"
+    end
+  end
+
+  def dislikes
+    @video = Video.find(params[:video_id])
+    if @video.likes > 0
+      @video.likes -= 1
+    end
+    if @video.save
+      redirect_to video_path(@video), :notice => "You Just Gave Thumbs Down To this Video"
+    else
+      redirect_to video_path(@video), :alert => "Whoaa... Something Went Wrong"
+    end
+  end
+  private
+  def increase_video_hits(video)
+    puts "I'm here #{video.hits}"
+    video.hits += 1
+    video.save
+    puts "hits:: #{video.hits}"
+  end
 end
 

@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-  helper_method :admin?
-  helper_method :auth_review?
-
+ protect_from_forgery
+ helper_method :admin?
+ helper_method :auth_review?
  protected
 
  def calculate_points(review,person_id)
