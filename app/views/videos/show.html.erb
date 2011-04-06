@@ -20,4 +20,6 @@
 <% end %>
 <hr />
 
-<%= render 'reviews/form' %>
+<% if auth_review? %>
+    <%= render 'reviews/form' %>
+<% end %>

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_filter :authorize_review
   def index
   end
 
