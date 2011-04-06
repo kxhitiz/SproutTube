@@ -2,14 +2,17 @@
 <h2> Video Path: <%= @video.path %> </h2>
 
 
-<video src="/<%= @video.path %>" controls="controls" width = "400" poster = "images/video_icon.png">
+<video id= "show_video" src = "/<%= @video.path %>" controls="controls" width = "500" poster = "images/video_icon.png">
     your browser does not support the video tag
 </video>
 
-<hr />
-<h2>Your Review Here</h2>
+<br />
+<h2><hr />Your Review Here</h2>
 <% @reviews.each do |review| %>
+    <div class="video_review">
     <%= review.content %> <br />
+    By:<%= id2person("#{review.person_id}") %> </br>
+    </div>
 <% end %>
 <hr />
 

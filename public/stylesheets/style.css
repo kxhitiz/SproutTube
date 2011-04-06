@@ -237,6 +237,49 @@ blockquote{
     font-weight: bold;
     }
 
+
+/**** Sidebar for show action ***/
+#show_right {
+    width: 315px;
+    float: right;
+    display:block;
+    margin-top: 10px;
+}
+
+#show_right .box {
+    width: 19em;/*280px*/
+    background: #F6F9FB;
+    border: 1px solid #E1E1E1;
+    padding:10px 10px 15px 10px;
+    float: right;
+}
+
+#show_right .box h2 {
+    font-size: 1.1em;
+    margin: 0px 0 0px 0;
+    padding:0px 0 5px 0;
+}
+
+#show_right .box a {
+    margin: 10px 0 10px 0;
+    color: #93B300;
+    font-size: 10px;
+}
+
+#show_right .box p {
+    margin: 5px 0 10px 0;
+    line-height: 15px;
+}
+
+#show_right .box ul {
+    padding: 0 0 7px 20px;
+    margin:10px 0 10px 0;
+}
+
+#show_right .box li {
+    margin-top:5px;
+}
+
 /**** Clear Div ***/
 
 
@@ -253,7 +296,7 @@ blockquote{
 
 
 #footer {
-        margin: 40px auto 0 auto;
+    margin: 40px auto 0 auto;
     text-align: center;
     border-top: dotted 1px gray;
     padding: 20px 0 20px 0;
@@ -271,4 +314,14 @@ blockquote{
 
 .alert {
     background: #FF0000;
+}
+
+.video_review {
+    border: 1px dotted #dddddd;
+    margin-bottom: 4px;
+    padding: 4px;
+}
+
+#show_video {
+    box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }
