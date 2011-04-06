@@ -1,12 +1,12 @@
-<% semantic_form_for @video do |form| %>
-    <% form.inputs do %>
+<%= semantic_form_for @video do |form| %>
+    <%= form.inputs do %>
             <%= form.input :title %>
             <%= form.input :description %>
             <%= form.input :category, :as => :select,  :collection => Category.select('distinct name').map { |c| c.name } %>
             <%= form.input :tags %>
             <%= form.input :path %>
         <% end %>
-        <% form.buttons do %>
+        <%= form.buttons do %>
             <%= form.commit_button %>
         <% end %>
 <% end %>

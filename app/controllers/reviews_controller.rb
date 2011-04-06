@@ -12,7 +12,10 @@ class ReviewsController < ApplicationController
 
   def create
     @video = Video.find(params[:video_id])
-    if @review= @video.reviews.create(params[:review])
+    @person = current_person.id
+    @review = @video.reviews.new(params[:review])
+    @review.person_id = @person
+    if @review.save
       redirect_to videos_path, :notice => "Great! You Just Made a Review"
     else
       render :action => "new", :alert => "Oops! Unable to Post Review Right Now!"

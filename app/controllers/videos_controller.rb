@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_filter :authorize, :except => :index
+  before_filter :authorize, :except => [:index, :show]
   def index
     if params[:search]
       @videos = Video.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
@@ -10,6 +10,11 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @review = @video.reviews.new
+    @reviews = @video.reviews
+    respond_to do |format|
+      format.html {render :layout => 'video_show_layout'}
+    end
   end
 
   def create

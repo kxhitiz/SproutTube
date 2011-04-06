@@ -5,3 +5,12 @@
 <video src="/<%= @video.path %>" controls="controls" width = "400" poster = "images/video_icon.png">
     your browser does not support the video tag
 </video>
+
+<hr />
+<h2>Your Review Here</h2>
+<% @reviews.each do |review| %>
+    <%= review.content %> <br />
+<% end %>
+<hr />
+
+<%= render 'reviews/form' %>
