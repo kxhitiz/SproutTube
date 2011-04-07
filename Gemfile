@@ -11,7 +11,7 @@ gem 'annotate'
 gem 'formtastic'
 gem 'devise'
 gem 'will_paginate'
-
+gem 'acts-as-taggable-on'
 gem 'jquery-rails'
 
 group :development, :test do

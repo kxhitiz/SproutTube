@@ -7,10 +7,6 @@ Given /^When I fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-Given /^I pressed "([^"]*)"$/ do |arg1|
-  click_button "#{arg1}"
-end
-
 Given /^When I select "([^"]*)" from "([^"]*)"$/ do |value, option|
   select(value, :from => option)
 end

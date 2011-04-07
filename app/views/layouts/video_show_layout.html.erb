@@ -44,18 +44,17 @@
                 <div id="left">
                     <p class="notice"><%= notice %></p>
                     <p class="alert"><%= alert %></p>
-                    <h2>Welcome to SproutTube.com</h2>
                     <%= yield %>
                 </div>
                 <div id="show_right">
                     <div class="box">
                         <h2 style="margin-top:17px">You May Also Like</h2>
                         <ul>
-                            <% @rec_videos= recommended_video(@video) %>
+                            <% @rec_videos= recommended_videos(@video) %>
                             <% @rec_videos.each do |vid| %>
                                 <li>
-                                    <%= link_to "#{vid.title}", video_path(vid) %>
-                                    <%= "Hits: #{vid.hits}" %>
+                                    <%= link_to image_tag("video_poster/#{vid.category}.png", :alt => "#{vid.title}", :width => 80), video_path(vid), :title => "#{vid.title}" %> <br />
+                                    <%= "Hits: #{vid.hits}" %> </br>
                                     <%= "Reviews Count: #{review_count(vid)}" %> <br />
                                 </li>
                             <% end %>

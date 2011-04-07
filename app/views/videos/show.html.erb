@@ -9,8 +9,8 @@
  </div>
  <!-- End VideoJS -->
 <h3>
-<%= link_to  image_tag("thumbs_up.png", :alt => "Like This Video"), video_likes_path(@video) %>
-<%= link_to image_tag("thumbs_down.png", :alt => "Dislike This Video"), video_dislikes_path(@video) %>
+<span id= "like"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span><%= @video.likes %>
+<span id="dislike"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
 </h3>
 <br />
 <h2><hr />Video Reviews</h2>

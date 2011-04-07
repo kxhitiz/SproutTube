@@ -40,6 +40,7 @@ GEM
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
     activesupport (3.0.5)
+    acts-as-taggable-on (2.0.6)
     alias (0.2.2)
     annotate (2.4.0)
     arel (2.0.9)
@@ -186,6 +187,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   annotate
   capybara!
   cucumber-rails

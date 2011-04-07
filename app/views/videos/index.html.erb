@@ -1,13 +1,11 @@
 <h1>Browse Though All Videos</h1>
 <h2>
 <% @videos.each do |video| %>
-    <%= link_to "#{video.title}", video_path(video) %>
+    <%# link_to "#{video.title}", video_path(video) %>
+    <%= link_to image_tag("video_poster/#{video.category}.png", :alt => "#{video.title}", :width => 80), video_path(video), :title => "#{video.title}" %> <br />
     <%= "Hits: #{video.hits}" %>
-    <%= "Reviews Count: #{review_count(video)}" %> <br />
+    <%= "Reviews Count: #{review_count(video)}" %> <br /> <br />
 <% end %>
 </h2>
-
-
 <%= will_paginate @videos %>
-<%# page_entries_info @videos %>
 

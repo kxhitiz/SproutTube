@@ -11,3 +11,24 @@ function externalLinks() {
  }
 }
 window.onload = externalLinks;
+
+$(function() {
+
+    $("#like").hover(
+      function () {
+        $(this).css("opacity", 1);
+      },
+      function () {
+        $(this).css("opacity", .5);
+      }
+    );
+
+  $("#dislike").hover(
+      function () {
+        $(this).css("opacity", 1);
+      },
+      function () {
+        $(this).css("opacity", .5);
+      }
+    );
+});
