@@ -12,7 +12,6 @@
 <%= link_to  image_tag("thumbs_up.png", :alt => "Like This Video"), video_likes_path(@video) %>
 <%= link_to image_tag("thumbs_down.png", :alt => "Dislike This Video"), video_dislikes_path(@video) %>
 </h3>
-
 <br />
 <h2><hr />Video Reviews</h2>
 <% @reviews.each do |review| %>
@@ -29,3 +28,4 @@
     <i><%= "You Got To Login if You Want to Make a Review & Get Points... " %></i>
     <%= link_to "Yes, I Want", person_session_path %>
 <% end %>
+

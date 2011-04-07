@@ -2,10 +2,12 @@ class VideosController < ApplicationController
   before_filter :authorize, :except => [:index, :show]
   def index
     if params[:search]
-      @videos = Video.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
+       @videos = Video.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"]).paginate :per_page => 2, :page => params[:page], :order => 'created_at DESC'
+
     else
-      @videos = Video.find(:all)
+      @videos = Video.all.paginate :per_page => 2, :page => params[:page], :order => 'created_at DESC'
     end
+
   end
 
   def show

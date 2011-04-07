@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'annotate'
 gem 'formtastic'
 gem 'devise'
+gem 'will_paginate'
 
 gem 'jquery-rails'
 
@@ -51,3 +52,4 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+
