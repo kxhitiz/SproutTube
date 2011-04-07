@@ -10,6 +10,15 @@ class VideosController < ApplicationController
 
   end
 
+  def destroy
+    @video = Video.find(params[:id])
+    if @video.destroy
+      redirect_to videos_path, :notice => "Video Deleted Successfully"
+    else
+      redirect_to videos_path, :alert => "Oops!! Video Deletion Failed!!"
+    end
+  end
+
   def show
     @video = Video.find(params[:id])
     increase_video_hits(@video)
@@ -27,7 +36,7 @@ class VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
     if @video.update_attributes(params[:video])
-      redirect_to video_path(@video), :notice => "Video Updated Successfully"
+      redirect_to videos_path, :notice => "Video Updated Successfully"
     else
       render :action => "edit", :alert => "Video Update Failed!!"
     end

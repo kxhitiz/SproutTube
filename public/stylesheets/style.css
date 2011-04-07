@@ -10,7 +10,7 @@ body {
     background: url(../images/img/top_bg.gif);
     background-repeat: repeat-x;
     font-family: Verdana, Arial, sans-serif;
-    font-size: .6em;
+    font-size: .7em;
 }
 
 p {
@@ -369,4 +369,9 @@ blockquote{
 #categories_cloud {
     font-size: 30px;
     font-weight: bold;
+}
+
+#video_description {
+    font-size: 12px;
+    border: 1px dotted #DDDDDD;
 }

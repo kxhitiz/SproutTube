@@ -34,7 +34,7 @@ $(function() {
 
     $("#response_count").hover(
         function () {
-            $("#response_count_message").html("Response Count is Total Count of Both <br />Likes & Dislikes");
+            $("#response_count_message").html("Response Count is Total Count of Both <br />Likes & Dislikes").fadeIn("slow");
         },
         function () {
             $("#response_count_message").html("");

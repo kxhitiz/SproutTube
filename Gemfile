@@ -13,6 +13,7 @@ gem 'devise'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'jquery-rails'
+gem 'ajaxful_rating'
 
 group :development, :test do
   gem 'rspec-rails'

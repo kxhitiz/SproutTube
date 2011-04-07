@@ -4,20 +4,20 @@ class ApplicationController < ActionController::Base
  helper_method :auth_review?
  protected
 
- def calculate_points(review,person_id)
-   @review = review
-   @person = Person.find(person_id)
-
-   @points = @person.points
-   if @review.content.length > 150
-     @points += 5
-   elsif @review.content.length > 20
-     @points +=1
-   end
-
-   @person.points = @points
-   @person.save
- end
+ # def calculate_points(review,person_id)
+ #   @review = review
+ #   @person = Person.find(person_id)
+ #
+ #   @points = @person.points
+ #   if @review.content.length > 150
+ #     @points += 5
+ #   elsif @review.content.length > 20
+ #     @points +=1
+ #   end
+ #
+ #   @person.points = @points
+ #   @person.save
+ # end
 
  def authorize
     unless admin?

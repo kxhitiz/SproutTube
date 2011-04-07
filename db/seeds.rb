@@ -7,33 +7,30 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
   [
-  {:name => "Perl" },
   {:name => "PHP" },
   {:name => "Rails" },
-  {:name => "Java" },
-  {:name => "Python" },
   {:name => "Ruby" },
-  {:name => "ASP" },
-  {:name => "JSP" },
-  {:name => "Wordpress" },
-  {:name => "Drupal" },
-  {:name => "Joomla" },
-  {:name => "Magento" }
+  {:name => "CSS" },
+  {:name => "HTML5" },
+  {:name => "Miscellaneous" }
   ].each do |attrb|
     Category.find_or_create_by_name(attrb)
   end
 
 
  [
-  {:title => "Perl is Great", :category => "Perl", :description => "Perl is happening", :path => "localhost" },
-  {:title => "Rails is Great", :category => "Rails", :description => "Rails is happening", :path => "localhost" },
-  {:title => "Java is Great", :category => "Java", :description => "Java is happening", :path => "localhost" },
-  {:title => "PHP is Great", :category => "PHP", :description => "PHP is happening", :path => "localhost" },
-  {:title => "Python is Great", :category => "Python", :description => "Python is happening", :path => "localhost" },
+  {:title => "CSS", :category => "CSS", :description => "In this video, you will learn the basic of using the @font-face rule and how to include new fonts into your web pages", :path => "css_typography_01" },
+  {:title => "CSS", :category => "CSS", :description => "In this video, you will learn more about using @font-face rule and including new fonts into your webpages", :path => "css_typography_02" },
+  {:title => "HTML5", :category => "HTML5", :description => "In this video, we will learn how to use the input elements. Using input in combination with the type attribute, we can create a wide variety of different form elements", :path => "html5_inputforms" },
+  {:title => "Miscellaneous", :category => "Miscellaneous", :description => "In this video, we explore how to create your own snippets to speed up your development", :path => "textmate_snippets" },
+  {:title => "PHP", :category => "PHP", :description => "Here we get the MYSQL database server, and PhpMyAdmin database manager setup. We also create a database for our project, as well as create, mySQL user for the application to use to connect to the database", :path => "php_mysql_databasesetup" },
+  {:title => "PHP", :category => "PHP", :description => "YQL stands for Yahoo! Query Language. In this video we learn how to call YQL Queries from PHP pages.", :path => "php_yql" },
+  {:title => "Rails", :category => "Rails", :description => "This video teaches us about defining associations between models in ActiveRecords. We begin by planning our relationships, and generating a new model. ", :path => "active_records" },
+  {:title => "Ruby", :category => "Ruby", :description => "Sinatra is awesome! We start building our first web application using Sinatra. We install the Sinatra Gem, create a simple web server, and learn about Ruby's Code Blocks. ", :path => "ruby_sinatra" },
+  {:title => "Ruby", :category => "Ruby", :description => "RubyGems is the default package manager for Ruby and everyone is taking it as the de facto standards for Rails WebApp Development. It allows you to download, install and use third party libraries using simple command for extending feature of your App. ", :path => "rubygems" }
   ].each do |attrb|
-    Video.find_or_create_by_title(attrb)
+    Video.find_or_create_by_path(attrb)
   end
-
 
   [
   {:name => "admin", :email => "admin@sprout-tube.com", :password => "admingod" },
@@ -41,4 +38,3 @@
   ].each do |attrb|
     Person.find_or_create_by_name(attrb)
   end
-

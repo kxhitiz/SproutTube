@@ -3,7 +3,7 @@
 <head>
     <title>SproutTube</title>
     <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag 'rails', 'jquery', 'jquery-ui', 'application', 'textsizer', 'video' %>
+    <%= javascript_include_tag 'jquery', 'jquery-ui', 'rails', 'application', 'textsizer' %>
     <%= csrf_meta_tag %>
     <link rel="shortcut icon" href="favicon.ico" />
     <script type="text/javascript">
@@ -41,34 +41,32 @@
         <div id="content">
             <div style="float: right;"><a href="javascript:ts('body',1)">[+]</a> | <a
                 href="javascript:ts('body',-1)">[-]</a></div>
-                <div id="left">
+            <div id="left">
                     <p class="notice"><%= notice %></p>
                     <p class="alert"><%= alert %></p>
                     <%= yield %>
-                </div>
-                <div id="show_right">
+             </div>
+            <div id="right">
                     <div class="box">
-                        <h2 style="margin-top:17px">You May Also Like</h2>
+                        <h2 style="margin-top:17px">Recent Videos</h2>
                         <ul>
-                            <% current_video_id = @video.id %>
-                            <% @rec_videos= recommended_videos(@video) %>
+                            <% @rec_videos= recent_videos(@video) %>
                             <% @rec_videos.each do |vid| %>
-                                <% if vid.id != current_video_id %>
-                                    <li>
-                                        <%= link_to image_tag("video_poster/#{vid.category}.png", :alt => "#{vid.title}", :width => 80), video_path(vid), :title => "#{vid.title}" %> <br />
-                                        <%= "Hits: #{vid.hits}" %> </br>
-                                        <%= "Reviews Count: #{review_count(vid)}" %> <br />
-                                    </li>
-                                <% end %>
+                                <li>
+                                    <%= link_to image_tag("video_poster/#{vid.category}.png", :alt => "#{vid.title}", :width => 80), video_path(vid), :title => "#{vid.title}" %> <br />
+                                    <%= "Hits: #{vid.hits}" %>
+                                    <%= "Reviews Count: #{review_count(vid)}" %> <br />
+                                </li>
                             <% end %>
                         </ul>
                     </div>
                 </div>
-                <div id="clear"></div></div>
-                <div id="footer">
+            <div id="clear"></div>
+        </div>
+        <div id="footer">
                     <p>Copyright 2011 SproutTube.com Valid <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="external">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer" rel="external">XHTML</a></p>
-                </div>
-            </div>
-        </body>
+        </div>
+    </div>
+</body>
 </html>
 

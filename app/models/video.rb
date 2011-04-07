@@ -4,11 +4,6 @@ class Video < ActiveRecord::Base
   validates :category, :presence => true
   validates :path, :presence => true
 
-  def self.search(search, page)
-    all.paginate:per_page => 3, :page => page,
-            :conditions => ['title LIKE ?', "%" + search + "%"],
-            :order => 'created_at DESC'
-  end
 end
 # == Schema Information
 #

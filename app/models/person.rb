@@ -11,6 +11,15 @@ class Person < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :encrypted_password, :password_confirmation, :remember_me
+
+  def increase_points(review_content_length)
+    if review_content_length > 150
+      self.points += 5
+    elsif review_content_length > 20
+      self.points += 1
+    end
+  end
+
 end
 
 # == Schema Information

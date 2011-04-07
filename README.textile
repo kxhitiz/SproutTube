@@ -1,12 +1,17 @@
-h1=. Sprout Tube
+h1=. SproutTube
 
 h2. An attempt to make a simple Video Streaming WebApp
 
 h3. Features of the app are
 
-* User authentication using devise gem
-* Only admin can have full access for creating & modifying video
+* User authentication using devise
+* Only admin can have full access for creating, modifying & destroying video
 * User can make a review on each video
+* User can like or dislike the video only once in a specific video
+* Powerful video searching facility
+* User gets point on the basic of his review
+* Recommends user for particular video on the basic of what he is watching, and lists the best one first
+* Shows most watched videos & Most active users
 
 Suggestions are warmly welcomed :)
 

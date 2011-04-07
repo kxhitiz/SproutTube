@@ -41,6 +41,7 @@ GEM
       activesupport (= 3.0.5)
     activesupport (3.0.5)
     acts-as-taggable-on (2.0.6)
+    ajaxful_rating (2.2.8.2)
     alias (0.2.2)
     annotate (2.4.0)
     arel (2.0.9)
@@ -188,6 +189,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  ajaxful_rating
   annotate
   capybara!
   cucumber-rails

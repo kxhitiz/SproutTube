@@ -1,10 +1,8 @@
 <h1><%= @video.title %></h1>
-<h2> Video Path: <%= @video.path %> </h2>
-
 <!-- Begin VideoJS -->
  <div class="video-js-box">
    <video id="show_video" class="video-js" width="750" controls="controls" preload="auto"  >
-     <source src='<%= "../#{@video.path}" %>' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+     <source src='<%= "../resources/#{@video.category}/#{@video.path}.mp4" %>' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
    </video>
  </div>
  <!-- End VideoJS -->
@@ -33,6 +31,9 @@
 </div>
 
 </h3>
+<div id= "video_description">
+    <em><%= @video.description %></em>
+</div>
 <br />
 <h2><hr />Video Reviews</h2>
 <% @reviews.each do |review| %>

@@ -3,7 +3,12 @@
 <% @videos.each do |video| %>
     <%= link_to image_tag("video_poster/#{video.category}.png", :alt => "#{video.title}", :width => 80), video_path(video), :title => "#{video.title}" %> <br />
     <%= "Hits: #{video.hits}" %>
-    <%= "Reviews Count: #{review_count(video)}" %> <br /> <br />
+    <%= "Reviews Count: #{review_count(video)}" %>
+    <% if admin? %>
+        <%= link_to "Edit Video", edit_video_path(video) %>
+        <%= link_to "Delete Video", video_path(video), :confirm => "Admin, Do you really want to delete this Video? ", :method => :delete %>
+    <% end %>
+    <br /> <br />
 <% end %>
 </h2>
 <%= will_paginate @videos %>
