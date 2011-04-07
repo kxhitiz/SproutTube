@@ -9,8 +9,29 @@
  </div>
  <!-- End VideoJS -->
 <h3>
-<span id= "like"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span><%= @video.likes %>
-<span id="dislike"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
+<div id = "response_count">
+    Response Count: <%= Video.find(@video.id).likes.count %>
+    <div id = "response_count_message" ></div>
+</div>
+<div id = "like_box">
+    <% if auth_review? %>
+        <% like_status = user_like_status(@video) %>
+
+        <% if like_status == "neutral" %>
+            <span id = "like"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span>
+            <span id = "dislike"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
+        <% elsif like_status == "like" %>
+            <br /> <%= "You Liked This Video" %>
+            <span id = "my_choice"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span>
+            <span id="dislike"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
+        <% else %>
+            <br /><%= "You Disliked This Video" %>
+            <span id = "like"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span>
+            <span id="my_choice"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
+        <% end %>
+    <% end %>
+</div>
+
 </h3>
 <br />
 <h2><hr />Video Reviews</h2>

@@ -48,12 +48,10 @@
              </div>
             <div id="right">
                     <ul id="nav">
-                        <li><a href="#Home">Home</a></li>
-                        <li><a href="#Archive">Archive</a></li>
-                        <li><a href="#Link">Links</a></li>
-                        <li><a href="#download">Download</a></li>
-                        <li><a href="#support">Support</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><h2>Category List</h2></li>
+                        <% Category.all.each do |category| %>
+                            <li><%= link_to "#{category.name}", category_path(category) %></li>
+                        <% end %>
                     </ul>
                     <div class="box">
                         <h2 style="margin-top:17px">Recent Videos</h2>

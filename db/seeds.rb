@@ -36,7 +36,8 @@
 
 
   [
-  {:name => "admin", :email => "admin@sprout-tube.com", :password => "admingod" }
+  {:name => "admin", :email => "admin@sprout-tube.com", :password => "admingod" },
+   {:name => "guest", :email => "guest@sprout-tube.com", :password => "password" }
   ].each do |attrb|
     Person.find_or_create_by_name(attrb)
   end

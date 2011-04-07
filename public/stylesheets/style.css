@@ -343,5 +343,30 @@ blockquote{
 }
 
 #like, #dislike {
-    opacity: .5;
+    opacity: .3;
+}
+
+#like_box {
+
+    display: inline;
+}
+
+#response_count {
+
+    float: right;
+    text-align: right;
+}
+
+#response_count_message {
+    background-color : #967E14;
+    color: #0A61BF;
+}
+
+#my_choice {
+    opacity: 1;
+}
+
+#categories_cloud {
+    font-size: 30px;
+    font-weight: bold;
 }

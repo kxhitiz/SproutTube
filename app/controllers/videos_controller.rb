@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_filter :authorize, :except => [:index, :show]
+  before_filter :authorize, :except => [:index, :show, :likes, :dislikes]
   def index
     if params[:search]
        @videos = Video.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"]).paginate :per_page => 3, :page => params[:page], :order => 'created_at DESC'
@@ -18,9 +18,6 @@ class VideosController < ApplicationController
     respond_to do |format|
       format.html {render :layout => 'video_show_layout'}
     end
-  end
-
-  def create
   end
 
   def edit
@@ -52,7 +49,15 @@ class VideosController < ApplicationController
 
   def likes
     @video = Video.find(params[:video_id])
-    @video.likes += 1
+    p_id = current_person.id
+
+    @like = Like.find(:all, :conditions => [' person_id = ? AND video_id = ? ', p_id, params[:video_id] ])
+    if @like.count == 1
+      @like[0].update_attributes(:status => true)
+    else
+      Like.create(:person_id => p_id, :video_id => params[:video_id], :status => true )
+    end
+
     if @video.save
       redirect_to video_path(@video), :notice => "You Just Gave Thumbs Up To this Video"
     else
@@ -62,9 +67,15 @@ class VideosController < ApplicationController
 
   def dislikes
     @video = Video.find(params[:video_id])
-    if @video.likes > 0
-      @video.likes -= 1
+    p_id = current_person.id
+
+    @like = Like.find(:all, :conditions => [' person_id = ? AND video_id = ? ', p_id, params[:video_id] ])
+    if @like.count == 1
+      @like[0].update_attributes(:status => false)
+    else
+      Like.create(:person_id => p_id, :video_id => params[:video_id], :status => false )
     end
+
     if @video.save
       redirect_to video_path(@video), :notice => "You Just Gave Thumbs Down To this Video"
     else

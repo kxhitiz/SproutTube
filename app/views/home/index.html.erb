@@ -1,11 +1,12 @@
 <h1>Categories Cloud</h1>
 
 <br /> <br />
-<h2>
-<% @categories.each do |cat| %>
-    <%= link_to "#{cat.name}", category_path(cat) %> |
-<% end %>
-</h2>
+<div id="categories_cloud">
+    <% @categories.each do |cat| %>
+        <%= link_to "#{cat.name}", category_path(cat) %> |
+    <% end %>
+</div>
+
 
 <div id="most_watched_videos">
     <h2>Most Watched Videos</h2> <hr />

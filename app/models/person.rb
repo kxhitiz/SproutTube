@@ -2,6 +2,7 @@ class Person < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :reviews
+  has_many :likes
 
   validates_uniqueness_of :name
 

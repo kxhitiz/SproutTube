@@ -15,7 +15,6 @@ Feature: Add a new Video
     And When I fill in "Path" with "localhost"
     Then I sleep for "3" seconds
     And I press "Create Video"
-    Then I sleep for "13" seconds
     Then I should see "Video Submitted Successfully"
     Then I sleep for "2" seconds so that I can see the last output message clearly
 

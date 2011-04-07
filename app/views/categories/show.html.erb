@@ -3,9 +3,13 @@
   <%= link_to "Add Video", new_video_path %>
 <% end %>
 
-<h2> Videos in This Category </h2>
-
-<% @videos.each do |video| %>
-    <%= link_to "#{video.title}", video_path(video) %>
+<% if @videos.each.count == 0 %>
+    <%= "<br /><br /><h2> No Videos listed in this Category for Now, Check Back Soon ;) </h2>".html_safe %>
+<% else %>
+    <h2> Videos in This Category </h2>
+    <% @videos.each do |video| %>
+        <%= link_to image_tag("video_poster/#{video.category}.png", :alt => "#{video.title}", :width => 80), video_path(video), :title => "#{video.title}" %> <br />
+        <%= "Hits: #{video.hits}" %>
+        <%= "Reviews Count: #{review_count(video)}" %> <br /> <br />
+    <% end %>
 <% end %>
-

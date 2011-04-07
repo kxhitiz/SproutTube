@@ -10,10 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406063657) do
+ActiveRecord::Schema.define(:version => 20110407044048) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "video_id"
+    t.integer  "person_id"
+    t.boolean  "status",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
