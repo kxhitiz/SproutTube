@@ -4,8 +4,15 @@ class Person < ActiveRecord::Base
   has_many :reviews
   has_many :likes
 
-  validates_uniqueness_of :name
-  validates_uniqueness_of :email
+  # validates_uniqueness_of :name
+  #  validates_uniqueness_of :email
+  #  validates_presence_of :name
+  #  validates_presence_of :email
+  validates :name, :presence => true,
+                   :uniqueness => true
+  validates :email, :presence => true,
+                    :uniqueness => true
+                  
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

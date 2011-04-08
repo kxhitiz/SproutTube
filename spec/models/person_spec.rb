@@ -3,10 +3,8 @@ require 'spec_helper'
 describe Person do
   it { should have_many :reviews }
   it { should_not allow_value("jpt").for(:email) }
-
-
-  #it { should validate_uniqueness_of(:name) }
-  #   it { should validate_uniqueness_of(:email) }
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:email) }
 end
 
 # == Schema Information

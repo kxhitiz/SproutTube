@@ -332,7 +332,6 @@ blockquote{
     display: block;
     padding: 5px;
     margin-top: 20px;
-    box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }
 
 #most_active_users {
@@ -340,7 +339,6 @@ blockquote{
     display: block;
     padding: 5px;
     margin-top: 10px;
-    box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }
 
 #most_active_user {
@@ -381,9 +379,8 @@ blockquote{
     background: #194F0A;
 }
 
-
 #categories_container {
-    box-shadow: 5px 10px 5px rgba(0,0,0,.3);
+
 }
 
 #video_description {

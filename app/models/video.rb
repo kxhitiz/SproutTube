@@ -3,7 +3,6 @@ class Video < ActiveRecord::Base
   has_many :likes
   validates :category, :presence => true
   validates :path, :presence => true
-
 end
 # == Schema Information
 #
