@@ -3,9 +3,9 @@
 <head>
     <title>SproutTube</title>
     <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag 'jquery', 'jquery-ui', 'rails', 'application', 'textsizer' %>
+    <%= javascript_include_tag 'jquery', 'jquery-ui', 'rails', 'application' %>
     <%= csrf_meta_tag %>
-    <link rel="shortcut icon" href="favicon.ico" />
+
     <script type="text/javascript">
         // Must come after the video.js library
 
@@ -39,8 +39,6 @@
             </div>
         </div>
         <div id="content">
-            <div style="float: right;"><a href="javascript:ts('body',1)">[+]</a> | <a
-                href="javascript:ts('body',-1)">[-]</a></div>
             <div id="left">
                     <p class="notice"><%= notice %></p>
                     <p class="alert"><%= alert %></p>
@@ -51,12 +49,15 @@
                         <h2 style="margin-top:17px">Recent Videos</h2>
                         <ul>
                             <% @rec_videos= recent_videos(@video) %>
-                            <% @rec_videos.each do |vid| %>
-                                <li>
-                                    <%= link_to image_tag("video_poster/#{vid.category}.png", :alt => "#{vid.title}", :width => 80), video_path(vid), :title => "#{vid.title}" %> <br />
-                                    <%= "Hits: #{vid.hits}" %>
-                                    <%= "Reviews Count: #{review_count(vid)}" %> <br />
-                                </li>
+                            <% @rec_videos.each do |video| %>
+                                <li><br />
+                                    <span class = "recent_video_list">
+                                        <b><%= "#{video.title}" %></b><br />
+                                        <%= link_to image_tag("video_poster/#{video.category}.png", :alt => "#{video.title}", :width => 80), video_path(video), :title => "#{video.title}" %> <br />
+                                        <%= pluralize("#{video.hits}", 'view') %> &
+                                        <%= pluralize("#{review_count(video)}", "review") %> <br />
+                                    </span>
+                                </li> <hr />
                             <% end %>
                         </ul>
                     </div>

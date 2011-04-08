@@ -11,6 +11,7 @@
     Response Count: <%= Video.find(@video.id).likes.count %>
     <div id = "response_count_message" ></div>
 </div>
+
 <div id = "like_box">
     <% if auth_review? %>
         <% like_status = user_like_status(@video) %>
@@ -19,14 +20,15 @@
             <span id = "like"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span>
             <span id = "dislike"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
         <% elsif like_status == "like" %>
-            <br /> <%= "You Liked This Video" %>
             <span id = "my_choice"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span>
             <span id="dislike"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
         <% else %>
-            <br /><%= "You Disliked This Video" %>
             <span id = "like"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), video_likes_path(@video), :title => "I Like This Video" %> </span>
             <span id="my_choice"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), video_dislikes_path(@video), :title => "I Dislike This Video" %></span>
         <% end %>
+    <% elsif %>
+        <span id = "noauth_like"><%= link_to  image_tag("thumbs_up.png", :alt => "I Like This Video"), new_person_session_path, :title => "I Like This Video" %> </span>
+        <span id="noauth_dislike"><%= link_to image_tag("thumbs_down.png", :alt => "I Dislike This Video"), new_person_session_path, :title => "I Dislike This Video" %></span>
     <% end %>
 </div>
 
@@ -35,7 +37,22 @@
     <em><%= @video.description %></em>
 </div>
 <br />
+
 <h2><hr />Video Reviews</h2>
+
+<div id="review_notice">
+    <% if @reviews.count < 1 %>
+        <h3> No Reviews Yet, Be the first one to Review </h3>
+    <% end %>
+
+    <% if auth_review? %>
+        <%= render 'reviews/form' %>
+    <% elsif %>
+        <i><b><%= "You Got To Login if You Want to Make a Review & Get Points... " %></b></i>
+        <%= link_to "Yes, I Want", person_session_path %>
+    <% end %>
+</div>
+
 <% @reviews.each do |review| %>
     <div class="video_review">
     <%= review.content %> <br />
@@ -43,11 +60,3 @@
     </div>
 <% end %>
 <hr />
-
-<% if auth_review? %>
-    <%= render 'reviews/form' %>
-<% elsif %>
-    <i><%= "You Got To Login if You Want to Make a Review & Get Points... " %></i>
-    <%= link_to "Yes, I Want", person_session_path %>
-<% end %>
-

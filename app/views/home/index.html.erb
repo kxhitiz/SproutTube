@@ -1,30 +1,33 @@
+<div id = "categories_container" >
 <h1>Categories Cloud</h1>
-
-<br /> <br />
-<div id="categories_cloud">
-    <% @categories.each do |cat| %>
-        <%= link_to "#{cat.name}", category_path(cat) %> |
+<br />
+<br /><div id = "categories_cloud" >
+    <% @categories.each do |category| %>
+        <%= link_to "#{category.name}", category_path(category) %>|
     <% end %>
 </div>
-
+</div>
 
 <div id="most_watched_videos">
     <h2>Most Watched Videos</h2> <hr />
-    <h3>
+        <h2>
         <% @most_watched_videos.each do |video| %>
-            <%= link_to "#{video.title}", video_path(video) %> |
-            <%= "Hits: #{video.hits}" %> |
-            <%= "#{review_count(video)} Reviews Made" %> <br />
+            <div class ="each_video">
+                <%= link_to "#{video.title}", video_path(video) %> |
+                <%= pluralize("#{video.hits}", 'view') %> &
+                <%= pluralize("#{review_count(video)}", "review") %> <br />
+            </div>
         <% end %>
-    </h3>
+        </h2>
 
 </div>
-<div id="most_active_users">
+<div id = "most_active_users" >
     <h2>Most Active Users</h2> <hr />
-    <h3>
-        <% @most_active_users.each do |usr| %>
-            <%= "Name: #{usr.name}" %> |
-            <%= "Points: #{usr.points}" %><br />
-        <% end %>
-    </h3>
+    <% @most_active_users.each do |user| %>
+        <div id = "most_active_user" >
+            <b><%= "#{user.name}" %></b>
+            (<%= pluralize("#{user.points}", 'point') %>)
+            <br />
+        </div>
+    <% end %>
 </div>

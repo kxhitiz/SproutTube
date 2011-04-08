@@ -14,21 +14,12 @@ window.onload = externalLinks;
 
 $(function() {
 
-    $("#like").hover(
+   $("#like, #dislike, #noauth_dislike, #noauth_like").hover(
       function () {
         $(this).css("opacity", 1);
       },
       function () {
-        $(this).css("opacity", .5);
-      }
-    );
-
-  $("#dislike").hover(
-      function () {
-        $(this).css("opacity", 1);
-      },
-      function () {
-        $(this).css("opacity", .5);
+        $(this).css("opacity", .2);
       }
     );
 
@@ -40,4 +31,10 @@ $(function() {
             $("#response_count_message").html("");
         }
     );
+
+    $("#noauth_like a, #noauth_dislike a").click(function(event) {
+        if(!confirm("Login to like or dislike this video?")){
+            event.preventDefault();
+        }
+    });
 });

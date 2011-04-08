@@ -1,8 +1,8 @@
-<% semantic_form_for ([@video, @review]) do |form| %>
-    <% form.inputs do %>
+<%= semantic_form_for ([@video, @review]) do |form| %>
+    <%= form.inputs do %>
             <% form.input :content %>
     <% end %>
-    <% form.buttons do %>
+    <%= form.buttons do %>
             <%= form.commit_button %>
     <% end %>
 <% end %>

@@ -5,6 +5,7 @@ class Person < ActiveRecord::Base
   has_many :likes
 
   validates_uniqueness_of :name
+  validates_uniqueness_of :email
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

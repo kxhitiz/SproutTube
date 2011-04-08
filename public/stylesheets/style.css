@@ -331,6 +331,7 @@ blockquote{
     border: 1px dotted #DDDDDD;
     display: block;
     padding: 5px;
+    margin-top: 20px;
     box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }
 
@@ -342,8 +343,12 @@ blockquote{
     box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }
 
-#like, #dislike {
-    opacity: .3;
+#most_active_user {
+    font-size: 14px;
+}
+
+#like, #dislike, #noauth_like, #noauth_dislike {
+    opacity: .2;
 }
 
 #like_box {
@@ -369,9 +374,60 @@ blockquote{
 #categories_cloud {
     font-size: 30px;
     font-weight: bold;
+    display: inline;
+}
+
+#categories_cloud a:hover {
+    background: #194F0A;
+}
+
+
+#categories_container {
+    box-shadow: 5px 10px 5px rgba(0,0,0,.3);
 }
 
 #video_description {
     font-size: 12px;
     border: 1px dotted #DDDDDD;
+}
+
+#review_notice {
+    color: #1C7305;
+}
+
+#recommendation_notice {
+    color: #1B6307;
+}
+
+.browse_all_video,.video_category_list {
+    margin: 5px;
+    box-shadow: 5px 10px 5px rgba(0,0,0,.3);
+    font-size: 14px;
+}
+
+.each_video {
+    display: inline;
+    margin-left: 10px;
+    border-right: 1px solid #DDDDDD;
+    margin-bottom: 5px;
+}
+
+.box img {
+    opacity: .5;
+}
+
+.box img:hover {
+    opacity: 1;
+}
+
+.recommendation_video_list {
+    font-size: 16px;
+}
+
+.recent_video_list {
+    font-size: 14px;
+}
+
+li {
+    list-style: none;
 }

@@ -12,9 +12,13 @@ Feature: Add a new Video
     And When I select "Rails" from "Category"
 
     And When I fill in "Tags" with "Web"
-    And When I fill in "Path" with "localhost"
+    And When I fill in "Path" with "active_records"
     Then I sleep for "3" seconds
     And I press "Create Video"
     Then I should see "Video Submitted Successfully"
     Then I sleep for "2" seconds so that I can see the last output message clearly
+    Then I fill in "Content" with "This is my review"
+    And I press "Create Review"
+    Then I should see "Great! You Just Made a Review"
+
 

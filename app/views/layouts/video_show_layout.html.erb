@@ -3,7 +3,7 @@
 <head>
     <title>SproutTube</title>
     <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag 'rails', 'jquery', 'jquery-ui', 'application', 'textsizer', 'video' %>
+    <%= javascript_include_tag 'jquery', 'jquery-ui', 'rails', 'application', 'video' %>
     <%= csrf_meta_tag %>
     <link rel="shortcut icon" href="favicon.ico" />
     <script type="text/javascript">
@@ -39,8 +39,6 @@
             </div>
         </div>
         <div id="content">
-            <div style="float: right;"><a href="javascript:ts('body',1)">[+]</a> | <a
-                href="javascript:ts('body',-1)">[-]</a></div>
                 <div id="left">
                     <p class="notice"><%= notice %></p>
                     <p class="alert"><%= alert %></p>
@@ -52,13 +50,22 @@
                         <ul>
                             <% current_video_id = @video.id %>
                             <% @rec_videos= recommended_videos(@video) %>
-                            <% @rec_videos.each do |vid| %>
-                                <% if vid.id != current_video_id %>
-                                    <li>
-                                        <%= link_to image_tag("video_poster/#{vid.category}.png", :alt => "#{vid.title}", :width => 80), video_path(vid), :title => "#{vid.title}" %> <br />
-                                        <%= "Hits: #{vid.hits}" %> </br>
-                                        <%= "Reviews Count: #{review_count(vid)}" %> <br />
-                                    </li>
+
+                            <% if @rec_videos.count < 2 %>
+                                <div id="recommendation_notice">
+                                    Sorry, currently no other videos in this Category
+                                </div>
+                            <% end %>
+                            <% @rec_videos.each do |video| %>
+                                <% if video.id != current_video_id %>
+                                    <li><br />
+                                        <span class = "recommendation_video_list" >
+                                            <%= "#{video.title}" %><br />
+                                            <%= link_to image_tag("video_poster/#{video.category}.png", :alt => "#{video.title}", :width => 80), video_path(video), :title => "#{video.title}" %> <br />
+                                            <%= pluralize("#{video.hits}", 'view') %> &
+                                            <%= pluralize("#{review_count(video)}", "review") %> <br />
+                                        </span>
+                                    </li> <hr />
                                 <% end %>
                             <% end %>
                         </ul>
